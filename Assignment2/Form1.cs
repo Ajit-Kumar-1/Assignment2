@@ -81,6 +81,17 @@ namespace Assignment2
         const string JUNIOR = "Junior";
         const string MASTER = "Master";
 
+        // Alert messages
+        const string ALERT_TITLE = "Alert";
+        const string BOOKING_SUCCESSFUL_DESCRIPTION = "Booking successful!";
+
+        // Error messages
+        const string ERROR_TITLE = "Error";
+        const string NO_WORKSHOP_SELECTED_DESCRIPTION = "Please select a workshop";
+        const string NO_LOCATION_SELECTED_DESCRIPTION = "Please select a location";
+        const string ZERO_PARTICIPANTS_DESCRIPTION = "Number of participants cannot be zero";
+        const string INVALID_PARTICIPANTS_DESCRIPTION = "Invalid input for number of participants";
+
         public Form1()
         {
             InitializeComponent();
@@ -115,9 +126,9 @@ namespace Assignment2
         // Event handler called when the "Display" button is clicked
         private void displayButton_Click(object sender, EventArgs e)
         {
-            // Show screen with booking details
-            homePanel.Hide();
-            displayDetailsPanel.Show();
+
+            // Variables to keep track of options selected
+            int selectedWorkshopIndex = -1;
 
             // Variables to keep track of various costs
             decimal registrationCostPerParticipant = 0.00M;
@@ -127,7 +138,6 @@ namespace Assignment2
             decimal registrationCostValue = 0.00M;
             decimal optionalCostValue = 0.00M;
             decimal lodgingCostValue = 0.00M;
-            decimal overallCostBeforeDiscount = 0.00M;
             decimal overallCost = 0.00M;
 
             // Variable to keep track of the number of training days
@@ -137,7 +147,8 @@ namespace Assignment2
             Boolean roomUpgradeAvailed = false;
 
             // Obtain the selected workshop by means of its index in the ListBox control
-            int selectedWorkshopIndex = workshopSelectionListBox.SelectedIndex;
+            selectedWorkshopIndex = workshopSelectionListBox.SelectedIndex;
+            
 
             // Display the workshop selected, number of days and the registration cost
             // Also keep track of the registration cost and the number of training days
@@ -146,35 +157,30 @@ namespace Assignment2
                 case 0:
                     selectedWorkshopDisplayLabel.Text = WORKSHOP_1;
                     numberOfDaysDisplayLabel.Text = TRAINING_DAYS_1.ToString() + DAYS_SUFFIX;
-                    registrationCostDisplayLabel.Text = REGISTRATION_FEE_1.ToString("C");
                     registrationCostPerParticipant = REGISTRATION_FEE_1;
                     numberOfTrainingDays = TRAINING_DAYS_1;
                     break;
                 case 1:
                     selectedWorkshopDisplayLabel.Text = WORKSHOP_2;
                     numberOfDaysDisplayLabel.Text = TRAINING_DAYS_2.ToString() + DAYS_SUFFIX;
-                    registrationCostDisplayLabel.Text = REGISTRATION_FEE_2.ToString("C");
                     registrationCostPerParticipant = REGISTRATION_FEE_2;
                     numberOfTrainingDays = TRAINING_DAYS_2;
                     break;
                 case 2:
                     selectedWorkshopDisplayLabel.Text = WORKSHOP_3;
                     numberOfDaysDisplayLabel.Text = TRAINING_DAYS_3.ToString() + DAYS_SUFFIX;
-                    registrationCostDisplayLabel.Text = REGISTRATION_FEE_3.ToString("C");
                     registrationCostPerParticipant = REGISTRATION_FEE_3;
                     numberOfTrainingDays = TRAINING_DAYS_3;
                     break;
                 case 3:
                     selectedWorkshopDisplayLabel.Text = WORKSHOP_4;
                     numberOfDaysDisplayLabel.Text = TRAINING_DAYS_4.ToString() + DAYS_SUFFIX;
-                    registrationCostDisplayLabel.Text = REGISTRATION_FEE_4.ToString("C");
                     registrationCostPerParticipant = REGISTRATION_FEE_4;
                     numberOfTrainingDays = TRAINING_DAYS_4;
                     break;
                 case 4:
                     selectedWorkshopDisplayLabel.Text = WORKSHOP_5;
                     numberOfDaysDisplayLabel.Text = TRAINING_DAYS_5.ToString() + DAYS_SUFFIX;
-                    registrationCostDisplayLabel.Text = REGISTRATION_FEE_5.ToString("C");
                     registrationCostPerParticipant = REGISTRATION_FEE_5;
                     numberOfTrainingDays = TRAINING_DAYS_5;
 
@@ -182,10 +188,16 @@ namespace Assignment2
                 case 5:
                     selectedWorkshopDisplayLabel.Text = WORKSHOP_6;
                     numberOfDaysDisplayLabel.Text = TRAINING_DAYS_6.ToString() + DAYS_SUFFIX;
-                    registrationCostDisplayLabel.Text = REGISTRATION_FEE_6.ToString("C");
                     registrationCostPerParticipant = REGISTRATION_FEE_6;
                     numberOfTrainingDays = TRAINING_DAYS_6;
                     break;
+                default:
+                    // Handle exception of non-selection of a workshop
+                    var messageBoxInstance = MessageBox.Show(NO_WORKSHOP_SELECTED_DESCRIPTION, ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (messageBoxInstance == DialogResult.OK)
+                        workshopSelectionListBox.Focus();
+                    return;
+
             }
 
             // Obtain the selected location by means of its index in the ListBox control
@@ -230,10 +242,37 @@ namespace Assignment2
                     selectedLocationDisplayLabel.Text = LOCATION_9;
                     baseLodgingCostPerParticipant = LODGING_FEE_9 * numberOfTrainingDays;
                     break;
+                default:
+                    // Handle exception of non-selection of a location
+                    var messageBoxInstance = MessageBox.Show(NO_LOCATION_SELECTED_DESCRIPTION, ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (messageBoxInstance == DialogResult.OK)
+                        locationSelectionListBox.Focus();
+                    return;
             }
 
             // Obtain the number of participants selected
             int participantCountValue = (int)participantCountSelectionControl.Value;
+
+            if (participantCountValue > 0) { }
+            else if (participantCountValue == 0)
+            // Handle exception of number of participants being zero
+            {
+                var messageBoxInstance = MessageBox.Show(ZERO_PARTICIPANTS_DESCRIPTION, ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (messageBoxInstance == DialogResult.OK)
+                    participantCountSelectionControl.Focus();
+                return;
+            }
+            else
+            // Handle exception of number of participants being an invalid value
+            {
+                var messageBoxInstance = MessageBox.Show(INVALID_PARTICIPANTS_DESCRIPTION, ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (messageBoxInstance == DialogResult.OK)
+                    participantCountSelectionControl.Focus();
+                return;
+            }
+
+            // Display the number of participants
+            selectedParticipantCountDisplayLabel.Text = participantCountValue.ToString();
 
             // Obtain the choice taken on the printed certificate option
             Boolean printedCertificateValue = printedCertificateSelectionCheckBox.Checked;
@@ -242,7 +281,7 @@ namespace Assignment2
             optionalCostPerParticipant = printedCertificateValue ? PRINTED_CERTIFICATE_COST : 0;
 
             // Display whether the printed certificate option is availed
-            selectedPrintedCertificateDisplayLabel.Text = YES;
+            selectedPrintedCertificateDisplayLabel.Text = printedCertificateValue ? YES : NO;
 
             // Display and keep track of the selected suite type, and keep track of the added cost
             if (basicSuiteOptionRadioButton.Checked)
@@ -267,17 +306,11 @@ namespace Assignment2
             // Calculate the registration cost
             registrationCostValue = registrationCostPerParticipant * participantCountValue;
 
-            // Add the registration cost to the overall cost
-            overallCost += registrationCostValue;
-
             // Display the registration cost
-            overallCostDisplayLabel.Text = registrationCostValue.ToString("C");
+            registrationCostDisplayLabel.Text = registrationCostValue.ToString("C");
 
             // Calculate the optional costs
             optionalCostValue = optionalCostPerParticipant * participantCountValue;
-
-            // Add the optional costs to the overall cost
-            overallCost += optionalCostValue;
 
             // Display the optional costs
             addedOptionalCostDisplayLabel.Text = optionalCostValue.ToString("C");
@@ -286,11 +319,17 @@ namespace Assignment2
             lodgingCostValue = baseLodgingCostPerParticipant * participantCountValue;
             lodgingCostValue += addedLodgingCostPerParticipant * participantCountValue;
 
+            // Display the lodging cost
+            lodgingCostDisplayLabel.Text = lodgingCostValue.ToString("C");
+
+            // Add the registration cost to the overall cost
+            overallCost += registrationCostValue;
+
             // Add the lodging cost to the overall cost
             overallCost += lodgingCostValue;
 
-            // Display the lodging cost
-            lodgingCostDisplayLabel.Text = lodgingCostValue.ToString("C");
+            // Add the optional costs to the overall cost
+            overallCost += optionalCostValue;
 
             // Check if discount is applicable
             Boolean isDiscountApplicable = participantCountValue >= 4 && roomUpgradeAvailed;
@@ -301,6 +340,30 @@ namespace Assignment2
 
             // Display the overall cost
             overallCostDisplayLabel.Text = overallCost.ToString("C");
+
+            // Show screen with booking details
+            homePanel.Hide();
+            displayDetailsPanel.Show();
+
+        }
+
+        // Event handler called on toggling the checkbox for the printed certificate option
+        private void printedCertificateSelectionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Boolean printedDertificateSelectionValue = printedCertificateSelectionCheckBox.Checked;
+            printedCertificateSelectionCheckBox.Text = printedDertificateSelectionValue ? YES : NO;
+        }
+
+        // Event handler called on clicking the "Book" button
+        private void bookButton_Click(object sender, EventArgs e)
+        {
+            var messageBoxInstance = MessageBox.Show(BOOKING_SUCCESSFUL_DESCRIPTION, ALERT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (messageBoxInstance == DialogResult.OK)
+            {
+                // Go back to home screen
+                homePanel.Show();
+                displayDetailsPanel.Hide();
+            }
         }
     }
 }

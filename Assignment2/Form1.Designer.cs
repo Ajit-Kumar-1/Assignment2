@@ -103,7 +103,7 @@ namespace Assignment2
             this.mainScreenButtonGroupBox.Controls.Add(this.clearButton);
             this.mainScreenButtonGroupBox.Controls.Add(this.summaryButton);
             this.mainScreenButtonGroupBox.Controls.Add(this.displayButton);
-            this.mainScreenButtonGroupBox.Location = new System.Drawing.Point(38, 776);
+            this.mainScreenButtonGroupBox.Location = new System.Drawing.Point(32, 803);
             this.mainScreenButtonGroupBox.Name = "mainScreenButtonGroupBox";
             this.mainScreenButtonGroupBox.Size = new System.Drawing.Size(787, 126);
             this.mainScreenButtonGroupBox.TabIndex = 9;
@@ -154,7 +154,7 @@ namespace Assignment2
             this.suiteSelectionGroupBox.Controls.Add(this.juniorSuiteOptionRadioButton);
             this.suiteSelectionGroupBox.Controls.Add(this.basicSuiteOptionRadioButton);
             this.suiteSelectionGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.suiteSelectionGroupBox.Location = new System.Drawing.Point(38, 547);
+            this.suiteSelectionGroupBox.Location = new System.Drawing.Point(32, 574);
             this.suiteSelectionGroupBox.Name = "suiteSelectionGroupBox";
             this.suiteSelectionGroupBox.Size = new System.Drawing.Size(388, 202);
             this.suiteSelectionGroupBox.TabIndex = 8;
@@ -199,18 +199,19 @@ namespace Assignment2
             // printedCertificateSelectionCheckBox
             // 
             this.printedCertificateSelectionCheckBox.AutoSize = true;
-            this.printedCertificateSelectionCheckBox.Location = new System.Drawing.Point(571, 483);
+            this.printedCertificateSelectionCheckBox.Location = new System.Drawing.Point(565, 510);
             this.printedCertificateSelectionCheckBox.Name = "printedCertificateSelectionCheckBox";
             this.printedCertificateSelectionCheckBox.Size = new System.Drawing.Size(78, 36);
             this.printedCertificateSelectionCheckBox.TabIndex = 7;
             this.printedCertificateSelectionCheckBox.Text = "No";
             this.printedCertificateSelectionCheckBox.UseVisualStyleBackColor = true;
+            this.printedCertificateSelectionCheckBox.CheckedChanged += new System.EventHandler(this.printedCertificateSelectionCheckBox_CheckedChanged);
             // 
             // printedCertificateSelectionLabel
             // 
             this.printedCertificateSelectionLabel.AutoSize = true;
             this.printedCertificateSelectionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.printedCertificateSelectionLabel.Location = new System.Drawing.Point(38, 484);
+            this.printedCertificateSelectionLabel.Location = new System.Drawing.Point(32, 511);
             this.printedCertificateSelectionLabel.Name = "printedCertificateSelectionLabel";
             this.printedCertificateSelectionLabel.Size = new System.Drawing.Size(476, 32);
             this.printedCertificateSelectionLabel.TabIndex = 6;
@@ -218,7 +219,7 @@ namespace Assignment2
             // 
             // participantCountSelectionControl
             // 
-            this.participantCountSelectionControl.Location = new System.Drawing.Point(571, 416);
+            this.participantCountSelectionControl.Location = new System.Drawing.Point(565, 443);
             this.participantCountSelectionControl.Name = "participantCountSelectionControl";
             this.participantCountSelectionControl.Size = new System.Drawing.Size(94, 39);
             this.participantCountSelectionControl.TabIndex = 5;
@@ -227,7 +228,7 @@ namespace Assignment2
             // 
             this.participantCountSelectionLabel.AutoSize = true;
             this.participantCountSelectionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.participantCountSelectionLabel.Location = new System.Drawing.Point(38, 418);
+            this.participantCountSelectionLabel.Location = new System.Drawing.Point(32, 445);
             this.participantCountSelectionLabel.Name = "participantCountSelectionLabel";
             this.participantCountSelectionLabel.Size = new System.Drawing.Size(381, 32);
             this.participantCountSelectionLabel.TabIndex = 4;
@@ -237,7 +238,7 @@ namespace Assignment2
             // 
             this.locationSelectionLabel.AutoSize = true;
             this.locationSelectionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.locationSelectionLabel.Location = new System.Drawing.Point(571, 61);
+            this.locationSelectionLabel.Location = new System.Drawing.Point(565, 46);
             this.locationSelectionLabel.Name = "locationSelectionLabel";
             this.locationSelectionLabel.Size = new System.Drawing.Size(209, 32);
             this.locationSelectionLabel.TabIndex = 3;
@@ -248,25 +249,25 @@ namespace Assignment2
             this.locationSelectionListBox.FormattingEnabled = true;
             this.locationSelectionListBox.ItemHeight = 32;
             this.locationSelectionListBox.Items.AddRange(new object[] {
-            "Dublin            $99.99",
-            "Belmullet       $219.99",
-            "Paris               $149.99",
-            "Berlin             $179.99",
-            "Vienna           $149.99",
-            "Lisbon\t       $89.99",
-            "Madrid           $229.99",
-            "Rome             $124.99",
-            "Amsterdam    $199.99"});
-            this.locationSelectionListBox.Location = new System.Drawing.Point(571, 96);
+            " Dublin           €99.99",
+            " Belmullet      €219.99",
+            " Paris              €149.99",
+            " Berlin            €179.99",
+            " Vienna          €149.99",
+            " Lisbon\t       €89.99",
+            " Madrid          €229.99",
+            " Rome            €124.99",
+            " Amsterdam   €199.99"});
+            this.locationSelectionListBox.Location = new System.Drawing.Point(565, 81);
             this.locationSelectionListBox.Name = "locationSelectionListBox";
-            this.locationSelectionListBox.Size = new System.Drawing.Size(254, 292);
+            this.locationSelectionListBox.Size = new System.Drawing.Size(254, 324);
             this.locationSelectionListBox.TabIndex = 2;
             // 
             // workshopSelectionLabel
             // 
             this.workshopSelectionLabel.AutoSize = true;
             this.workshopSelectionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.workshopSelectionLabel.Location = new System.Drawing.Point(38, 61);
+            this.workshopSelectionLabel.Location = new System.Drawing.Point(32, 46);
             this.workshopSelectionLabel.Name = "workshopSelectionLabel";
             this.workshopSelectionLabel.Size = new System.Drawing.Size(228, 32);
             this.workshopSelectionLabel.TabIndex = 1;
@@ -277,15 +278,15 @@ namespace Assignment2
             this.workshopSelectionListBox.FormattingEnabled = true;
             this.workshopSelectionListBox.ItemHeight = 32;
             this.workshopSelectionListBox.Items.AddRange(new object[] {
-            "C£ Fundamentals                 2 Days    $900",
-            "C£ Basics for Beginners        4 Days    $1,500",
-            "C£ Intermediate                   4 Days    $1,800",
-            "C£ Advanced Topics             3 Days    $2,300",
-            "ASP.NET with C£ Part A         5 Days    $1,250",
-            "ASP.NET with C£ Part B         5 Days    $1,250"});
-            this.workshopSelectionListBox.Location = new System.Drawing.Point(38, 96);
+            " C# Fundamentals                 2 Days    $900",
+            " C# Basics for Beginners        4 Days    $1,500",
+            " C# Intermediate                   4 Days    $1,800",
+            " C# Advanced Topics             3 Days    $2,300",
+            " ASP.NET with C# Part A         5 Days    $1,250",
+            " ASP.NET with C# Part B         5 Days    $1,250"});
+            this.workshopSelectionListBox.Location = new System.Drawing.Point(32, 81);
             this.workshopSelectionListBox.Name = "workshopSelectionListBox";
-            this.workshopSelectionListBox.Size = new System.Drawing.Size(490, 196);
+            this.workshopSelectionListBox.Size = new System.Drawing.Size(500, 228);
             this.workshopSelectionListBox.TabIndex = 0;
             // 
             // displayDetailsPanel
@@ -315,6 +316,7 @@ namespace Assignment2
             this.displayDetailsPanel.Name = "displayDetailsPanel";
             this.displayDetailsPanel.Size = new System.Drawing.Size(866, 975);
             this.displayDetailsPanel.TabIndex = 10;
+            this.displayDetailsPanel.Visible = false;
             // 
             // registrationCostDisplayLabel
             // 
@@ -391,6 +393,7 @@ namespace Assignment2
             this.bookButton.TabIndex = 1;
             this.bookButton.Text = "&Book";
             this.bookButton.UseVisualStyleBackColor = true;
+            this.bookButton.Click += new System.EventHandler(this.bookButton_Click);
             // 
             // displayScreenBackButton
             // 
