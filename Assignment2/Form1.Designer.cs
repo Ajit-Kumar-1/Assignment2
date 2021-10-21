@@ -54,7 +54,7 @@ namespace Assignment2
             this.lodgingCostTitleLabel = new System.Windows.Forms.Label();
             this.addedOptionalCostDisplayLabel = new System.Windows.Forms.Label();
             this.addedOptionalCostTitleLabel = new System.Windows.Forms.Label();
-            this.displayScreenButtonGroup = new System.Windows.Forms.GroupBox();
+            this.displayScreenButtonGroupBox = new System.Windows.Forms.GroupBox();
             this.bookButton = new System.Windows.Forms.Button();
             this.displayScreenBackButton = new System.Windows.Forms.Button();
             this.overallCostDisplayLabel = new System.Windows.Forms.Label();
@@ -71,12 +71,31 @@ namespace Assignment2
             this.selectedParticipantCountTitleLabel = new System.Windows.Forms.Label();
             this.selectedLocationTitleLabel = new System.Windows.Forms.Label();
             this.selectedWorkshopTitleLabel = new System.Windows.Forms.Label();
+            this.summaryPanel = new System.Windows.Forms.Panel();
+            this.summaryScreenButtonGroupBox = new System.Windows.Forms.GroupBox();
+            this.summaryScreenExitButton = new System.Windows.Forms.Button();
+            this.summaryScreenClearButton = new System.Windows.Forms.Button();
+            this.summaryScreenBackButton = new System.Windows.Forms.Button();
+            this.averageRevenueDisplayLabel = new System.Windows.Forms.Label();
+            this.averageRevenueTitleLabel = new System.Windows.Forms.Label();
+            this.numberOfDiscountedBookingsDisplayLabel = new System.Windows.Forms.Label();
+            this.totalValueOfOptionsChosenDisplayLabel = new System.Windows.Forms.Label();
+            this.totalLodgingFeesDisplayLabel = new System.Windows.Forms.Label();
+            this.totalRegistrationFeesDisplayLabel = new System.Windows.Forms.Label();
+            this.totalNumberOfBookingsDisplayLabel = new System.Windows.Forms.Label();
+            this.numberOfDiscountedBookingsTitleLabel = new System.Windows.Forms.Label();
+            this.totalValueOfOptionsChosenTitleLabel = new System.Windows.Forms.Label();
+            this.totalLodgingFeesTitleLabel = new System.Windows.Forms.Label();
+            this.totalRegistrationFeesTitleLabel = new System.Windows.Forms.Label();
+            this.totalNumberOfBookingsTitleLabel = new System.Windows.Forms.Label();
             this.homePanel.SuspendLayout();
             this.mainScreenButtonGroupBox.SuspendLayout();
             this.suiteSelectionGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.participantCountSelectionControl)).BeginInit();
             this.displayDetailsPanel.SuspendLayout();
-            this.displayScreenButtonGroup.SuspendLayout();
+            this.displayScreenButtonGroupBox.SuspendLayout();
+            this.summaryPanel.SuspendLayout();
+            this.summaryScreenButtonGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // homePanel
@@ -137,6 +156,7 @@ namespace Assignment2
             this.summaryButton.TabIndex = 1;
             this.summaryButton.Text = "&Summary";
             this.summaryButton.UseVisualStyleBackColor = true;
+            this.summaryButton.Click += new System.EventHandler(this.summaryButton_Click);
             // 
             // displayButton
             // 
@@ -297,7 +317,7 @@ namespace Assignment2
             this.displayDetailsPanel.Controls.Add(this.lodgingCostTitleLabel);
             this.displayDetailsPanel.Controls.Add(this.addedOptionalCostDisplayLabel);
             this.displayDetailsPanel.Controls.Add(this.addedOptionalCostTitleLabel);
-            this.displayDetailsPanel.Controls.Add(this.displayScreenButtonGroup);
+            this.displayDetailsPanel.Controls.Add(this.displayScreenButtonGroupBox);
             this.displayDetailsPanel.Controls.Add(this.overallCostDisplayLabel);
             this.displayDetailsPanel.Controls.Add(this.overallCostTitleLabel);
             this.displayDetailsPanel.Controls.Add(this.numberOfDaysDisplayLabel);
@@ -375,15 +395,15 @@ namespace Assignment2
             this.addedOptionalCostTitleLabel.TabIndex = 15;
             this.addedOptionalCostTitleLabel.Text = "Added Optional Cost:";
             // 
-            // displayScreenButtonGroup
+            // displayScreenButtonGroupBox
             // 
-            this.displayScreenButtonGroup.Controls.Add(this.bookButton);
-            this.displayScreenButtonGroup.Controls.Add(this.displayScreenBackButton);
-            this.displayScreenButtonGroup.Location = new System.Drawing.Point(75, 755);
-            this.displayScreenButtonGroup.Name = "displayScreenButtonGroup";
-            this.displayScreenButtonGroup.Size = new System.Drawing.Size(717, 158);
-            this.displayScreenButtonGroup.TabIndex = 14;
-            this.displayScreenButtonGroup.TabStop = false;
+            this.displayScreenButtonGroupBox.Controls.Add(this.bookButton);
+            this.displayScreenButtonGroupBox.Controls.Add(this.displayScreenBackButton);
+            this.displayScreenButtonGroupBox.Location = new System.Drawing.Point(75, 755);
+            this.displayScreenButtonGroupBox.Name = "displayScreenButtonGroupBox";
+            this.displayScreenButtonGroupBox.Size = new System.Drawing.Size(717, 158);
+            this.displayScreenButtonGroupBox.TabIndex = 14;
+            this.displayScreenButtonGroupBox.TabStop = false;
             // 
             // bookButton
             // 
@@ -538,13 +558,189 @@ namespace Assignment2
             this.selectedWorkshopTitleLabel.TabIndex = 0;
             this.selectedWorkshopTitleLabel.Text = "Workshop Selected: ";
             // 
+            // summaryPanel
+            // 
+            this.summaryPanel.Controls.Add(this.summaryScreenButtonGroupBox);
+            this.summaryPanel.Controls.Add(this.averageRevenueDisplayLabel);
+            this.summaryPanel.Controls.Add(this.averageRevenueTitleLabel);
+            this.summaryPanel.Controls.Add(this.numberOfDiscountedBookingsDisplayLabel);
+            this.summaryPanel.Controls.Add(this.totalValueOfOptionsChosenDisplayLabel);
+            this.summaryPanel.Controls.Add(this.totalLodgingFeesDisplayLabel);
+            this.summaryPanel.Controls.Add(this.totalRegistrationFeesDisplayLabel);
+            this.summaryPanel.Controls.Add(this.totalNumberOfBookingsDisplayLabel);
+            this.summaryPanel.Controls.Add(this.numberOfDiscountedBookingsTitleLabel);
+            this.summaryPanel.Controls.Add(this.totalValueOfOptionsChosenTitleLabel);
+            this.summaryPanel.Controls.Add(this.totalLodgingFeesTitleLabel);
+            this.summaryPanel.Controls.Add(this.totalRegistrationFeesTitleLabel);
+            this.summaryPanel.Controls.Add(this.totalNumberOfBookingsTitleLabel);
+            this.summaryPanel.Location = new System.Drawing.Point(0, 0);
+            this.summaryPanel.Name = "summaryPanel";
+            this.summaryPanel.Size = new System.Drawing.Size(864, 975);
+            this.summaryPanel.TabIndex = 10;
+            this.summaryPanel.Visible = false;
+            // 
+            // summaryScreenButtonGroupBox
+            // 
+            this.summaryScreenButtonGroupBox.Controls.Add(this.summaryScreenExitButton);
+            this.summaryScreenButtonGroupBox.Controls.Add(this.summaryScreenClearButton);
+            this.summaryScreenButtonGroupBox.Controls.Add(this.summaryScreenBackButton);
+            this.summaryScreenButtonGroupBox.Location = new System.Drawing.Point(57, 628);
+            this.summaryScreenButtonGroupBox.Name = "summaryScreenButtonGroupBox";
+            this.summaryScreenButtonGroupBox.Size = new System.Drawing.Size(729, 142);
+            this.summaryScreenButtonGroupBox.TabIndex = 24;
+            this.summaryScreenButtonGroupBox.TabStop = false;
+            // 
+            // summaryScreenExitButton
+            // 
+            this.summaryScreenExitButton.Location = new System.Drawing.Point(534, 50);
+            this.summaryScreenExitButton.Name = "summaryScreenExitButton";
+            this.summaryScreenExitButton.Size = new System.Drawing.Size(150, 46);
+            this.summaryScreenExitButton.TabIndex = 2;
+            this.summaryScreenExitButton.Text = "&Exit";
+            this.summaryScreenExitButton.UseVisualStyleBackColor = true;
+            this.summaryScreenExitButton.Click += new System.EventHandler(this.summaryScreenExitButton_Click);
+            // 
+            // summaryScreenClearButton
+            // 
+            this.summaryScreenClearButton.Location = new System.Drawing.Point(315, 51);
+            this.summaryScreenClearButton.Name = "summaryScreenClearButton";
+            this.summaryScreenClearButton.Size = new System.Drawing.Size(150, 46);
+            this.summaryScreenClearButton.TabIndex = 1;
+            this.summaryScreenClearButton.Text = "&Clear";
+            this.summaryScreenClearButton.UseVisualStyleBackColor = true;
+            this.summaryScreenClearButton.Click += new System.EventHandler(this.summaryScreenClearButton_Click);
+            // 
+            // summaryScreenBackButton
+            // 
+            this.summaryScreenBackButton.Location = new System.Drawing.Point(42, 51);
+            this.summaryScreenBackButton.Name = "summaryScreenBackButton";
+            this.summaryScreenBackButton.Size = new System.Drawing.Size(200, 46);
+            this.summaryScreenBackButton.TabIndex = 0;
+            this.summaryScreenBackButton.Text = "B&ack to Previous";
+            this.summaryScreenBackButton.UseVisualStyleBackColor = true;
+            this.summaryScreenBackButton.Click += new System.EventHandler(this.summaryScreenBackButton_Click);
+            // 
+            // averageRevenueDisplayLabel
+            // 
+            this.averageRevenueDisplayLabel.AutoSize = true;
+            this.averageRevenueDisplayLabel.Location = new System.Drawing.Point(525, 424);
+            this.averageRevenueDisplayLabel.Name = "averageRevenueDisplayLabel";
+            this.averageRevenueDisplayLabel.Size = new System.Drawing.Size(24, 32);
+            this.averageRevenueDisplayLabel.TabIndex = 23;
+            this.averageRevenueDisplayLabel.Text = "-";
+            // 
+            // averageRevenueTitleLabel
+            // 
+            this.averageRevenueTitleLabel.AutoSize = true;
+            this.averageRevenueTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.averageRevenueTitleLabel.Location = new System.Drawing.Point(70, 424);
+            this.averageRevenueTitleLabel.Name = "averageRevenueTitleLabel";
+            this.averageRevenueTitleLabel.Size = new System.Drawing.Size(225, 32);
+            this.averageRevenueTitleLabel.TabIndex = 22;
+            this.averageRevenueTitleLabel.Text = "Average Revenue: ";
+            // 
+            // numberOfDiscountedBookingsDisplayLabel
+            // 
+            this.numberOfDiscountedBookingsDisplayLabel.AutoSize = true;
+            this.numberOfDiscountedBookingsDisplayLabel.Location = new System.Drawing.Point(525, 323);
+            this.numberOfDiscountedBookingsDisplayLabel.Name = "numberOfDiscountedBookingsDisplayLabel";
+            this.numberOfDiscountedBookingsDisplayLabel.Size = new System.Drawing.Size(24, 32);
+            this.numberOfDiscountedBookingsDisplayLabel.TabIndex = 21;
+            this.numberOfDiscountedBookingsDisplayLabel.Text = "-";
+            // 
+            // totalValueOfOptionsChosenDisplayLabel
+            // 
+            this.totalValueOfOptionsChosenDisplayLabel.AutoSize = true;
+            this.totalValueOfOptionsChosenDisplayLabel.Location = new System.Drawing.Point(525, 262);
+            this.totalValueOfOptionsChosenDisplayLabel.Name = "totalValueOfOptionsChosenDisplayLabel";
+            this.totalValueOfOptionsChosenDisplayLabel.Size = new System.Drawing.Size(24, 32);
+            this.totalValueOfOptionsChosenDisplayLabel.TabIndex = 20;
+            this.totalValueOfOptionsChosenDisplayLabel.Text = "-";
+            // 
+            // totalLodgingFeesDisplayLabel
+            // 
+            this.totalLodgingFeesDisplayLabel.AutoSize = true;
+            this.totalLodgingFeesDisplayLabel.Location = new System.Drawing.Point(525, 200);
+            this.totalLodgingFeesDisplayLabel.Name = "totalLodgingFeesDisplayLabel";
+            this.totalLodgingFeesDisplayLabel.Size = new System.Drawing.Size(24, 32);
+            this.totalLodgingFeesDisplayLabel.TabIndex = 19;
+            this.totalLodgingFeesDisplayLabel.Text = "-";
+            // 
+            // totalRegistrationFeesDisplayLabel
+            // 
+            this.totalRegistrationFeesDisplayLabel.AutoSize = true;
+            this.totalRegistrationFeesDisplayLabel.Location = new System.Drawing.Point(525, 138);
+            this.totalRegistrationFeesDisplayLabel.Name = "totalRegistrationFeesDisplayLabel";
+            this.totalRegistrationFeesDisplayLabel.Size = new System.Drawing.Size(24, 32);
+            this.totalRegistrationFeesDisplayLabel.TabIndex = 18;
+            this.totalRegistrationFeesDisplayLabel.Text = "-";
+            // 
+            // totalNumberOfBookingsDisplayLabel
+            // 
+            this.totalNumberOfBookingsDisplayLabel.AutoSize = true;
+            this.totalNumberOfBookingsDisplayLabel.Location = new System.Drawing.Point(525, 78);
+            this.totalNumberOfBookingsDisplayLabel.Name = "totalNumberOfBookingsDisplayLabel";
+            this.totalNumberOfBookingsDisplayLabel.Size = new System.Drawing.Size(24, 32);
+            this.totalNumberOfBookingsDisplayLabel.TabIndex = 17;
+            this.totalNumberOfBookingsDisplayLabel.Text = "-";
+            // 
+            // numberOfDiscountedBookingsTitleLabel
+            // 
+            this.numberOfDiscountedBookingsTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.numberOfDiscountedBookingsTitleLabel.Location = new System.Drawing.Point(70, 323);
+            this.numberOfDiscountedBookingsTitleLabel.Name = "numberOfDiscountedBookingsTitleLabel";
+            this.numberOfDiscountedBookingsTitleLabel.Size = new System.Drawing.Size(438, 66);
+            this.numberOfDiscountedBookingsTitleLabel.TabIndex = 16;
+            this.numberOfDiscountedBookingsTitleLabel.Text = "Number of bookings that availed of the group discount: ";
+            // 
+            // totalValueOfOptionsChosenTitleLabel
+            // 
+            this.totalValueOfOptionsChosenTitleLabel.AutoSize = true;
+            this.totalValueOfOptionsChosenTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.totalValueOfOptionsChosenTitleLabel.Location = new System.Drawing.Point(70, 262);
+            this.totalValueOfOptionsChosenTitleLabel.Name = "totalValueOfOptionsChosenTitleLabel";
+            this.totalValueOfOptionsChosenTitleLabel.Size = new System.Drawing.Size(364, 32);
+            this.totalValueOfOptionsChosenTitleLabel.TabIndex = 15;
+            this.totalValueOfOptionsChosenTitleLabel.Text = "Total value of options chosen: ";
+            // 
+            // totalLodgingFeesTitleLabel
+            // 
+            this.totalLodgingFeesTitleLabel.AutoSize = true;
+            this.totalLodgingFeesTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.totalLodgingFeesTitleLabel.Location = new System.Drawing.Point(70, 200);
+            this.totalLodgingFeesTitleLabel.Name = "totalLodgingFeesTitleLabel";
+            this.totalLodgingFeesTitleLabel.Size = new System.Drawing.Size(233, 32);
+            this.totalLodgingFeesTitleLabel.TabIndex = 14;
+            this.totalLodgingFeesTitleLabel.Text = "Total lodging fees: ";
+            // 
+            // totalRegistrationFeesTitleLabel
+            // 
+            this.totalRegistrationFeesTitleLabel.AutoSize = true;
+            this.totalRegistrationFeesTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.totalRegistrationFeesTitleLabel.Location = new System.Drawing.Point(70, 138);
+            this.totalRegistrationFeesTitleLabel.Name = "totalRegistrationFeesTitleLabel";
+            this.totalRegistrationFeesTitleLabel.Size = new System.Drawing.Size(278, 32);
+            this.totalRegistrationFeesTitleLabel.TabIndex = 13;
+            this.totalRegistrationFeesTitleLabel.Text = "Total registration fees: ";
+            // 
+            // totalNumberOfBookingsTitleLabel
+            // 
+            this.totalNumberOfBookingsTitleLabel.AutoSize = true;
+            this.totalNumberOfBookingsTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.totalNumberOfBookingsTitleLabel.Location = new System.Drawing.Point(70, 78);
+            this.totalNumberOfBookingsTitleLabel.Name = "totalNumberOfBookingsTitleLabel";
+            this.totalNumberOfBookingsTitleLabel.Size = new System.Drawing.Size(325, 32);
+            this.totalNumberOfBookingsTitleLabel.TabIndex = 12;
+            this.totalNumberOfBookingsTitleLabel.Text = "Total number of bookings: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 976);
-            this.Controls.Add(this.displayDetailsPanel);
             this.Controls.Add(this.homePanel);
+            this.Controls.Add(this.displayDetailsPanel);
+            this.Controls.Add(this.summaryPanel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.homePanel.ResumeLayout(false);
@@ -555,7 +751,10 @@ namespace Assignment2
             ((System.ComponentModel.ISupportInitialize)(this.participantCountSelectionControl)).EndInit();
             this.displayDetailsPanel.ResumeLayout(false);
             this.displayDetailsPanel.PerformLayout();
-            this.displayScreenButtonGroup.ResumeLayout(false);
+            this.displayScreenButtonGroupBox.ResumeLayout(false);
+            this.summaryPanel.ResumeLayout(false);
+            this.summaryPanel.PerformLayout();
+            this.summaryScreenButtonGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -595,7 +794,7 @@ namespace Assignment2
         private System.Windows.Forms.Label overallCostTitleLabel;
         private System.Windows.Forms.Label numberOfDaysDisplayLabel;
         private System.Windows.Forms.Label numberOfDaysTitleLabel;
-        private System.Windows.Forms.GroupBox displayScreenButtonGroup;
+        private System.Windows.Forms.GroupBox displayScreenButtonGroupBox;
         private System.Windows.Forms.Button bookButton;
         private System.Windows.Forms.Button displayScreenBackButton;
         private System.Windows.Forms.Label registrationCostDisplayLabel;
@@ -604,6 +803,23 @@ namespace Assignment2
         private System.Windows.Forms.Label lodgingCostTitleLabel;
         private System.Windows.Forms.Label addedOptionalCostDisplayLabel;
         private System.Windows.Forms.Label addedOptionalCostTitleLabel;
+        private System.Windows.Forms.Panel summaryPanel;
+        private System.Windows.Forms.Label averageRevenueDisplayLabel;
+        private System.Windows.Forms.Label averageRevenueTitleLabel;
+        private System.Windows.Forms.Label numberOfDiscountedBookingsDisplayLabel;
+        private System.Windows.Forms.Label totalValueOfOptionsChosenDisplayLabel;
+        private System.Windows.Forms.Label totalLodgingFeesDisplayLabel;
+        private System.Windows.Forms.Label totalRegistrationFeesDisplayLabel;
+        private System.Windows.Forms.Label totalNumberOfBookingsDisplayLabel;
+        private System.Windows.Forms.Label numberOfDiscountedBookingsTitleLabel;
+        private System.Windows.Forms.Label totalValueOfOptionsChosenTitleLabel;
+        private System.Windows.Forms.Label totalLodgingFeesTitleLabel;
+        private System.Windows.Forms.Label totalRegistrationFeesTitleLabel;
+        private System.Windows.Forms.Label totalNumberOfBookingsTitleLabel;
+        private System.Windows.Forms.GroupBox summaryScreenButtonGroupBox;
+        private System.Windows.Forms.Button summaryScreenExitButton;
+        private System.Windows.Forms.Button summaryScreenClearButton;
+        private System.Windows.Forms.Button summaryScreenBackButton;
     }
 }
 
