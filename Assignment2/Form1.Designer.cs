@@ -29,6 +29,7 @@ namespace Assignment2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.homePanel = new System.Windows.Forms.Panel();
             this.mainScreenButtonGroupBox = new System.Windows.Forms.GroupBox();
             this.exitButton = new System.Windows.Forms.Button();
@@ -88,6 +89,9 @@ namespace Assignment2
             this.totalLodgingFeesTitleLabel = new System.Windows.Forms.Label();
             this.totalRegistrationFeesTitleLabel = new System.Windows.Forms.Label();
             this.totalNumberOfBookingsTitleLabel = new System.Windows.Forms.Label();
+            this.applicationToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.discountAppliedDisplayLabel = new System.Windows.Forms.Label();
+            this.discountAppliedTitleLabel = new System.Windows.Forms.Label();
             this.homePanel.SuspendLayout();
             this.mainScreenButtonGroupBox.SuspendLayout();
             this.suiteSelectionGroupBox.SuspendLayout();
@@ -137,6 +141,7 @@ namespace Assignment2
             this.exitButton.Text = "&Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.MouseHover += new System.EventHandler(this.exitButton_MouseHover);
             // 
             // clearButton
             // 
@@ -147,6 +152,7 @@ namespace Assignment2
             this.clearButton.Text = "&Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.MouseHover += new System.EventHandler(this.clearButton_MouseHover);
             // 
             // summaryButton
             // 
@@ -157,6 +163,7 @@ namespace Assignment2
             this.summaryButton.Text = "&Summary";
             this.summaryButton.UseVisualStyleBackColor = true;
             this.summaryButton.Click += new System.EventHandler(this.summaryButton_Click);
+            this.summaryButton.MouseHover += new System.EventHandler(this.summaryButton_MouseHover);
             // 
             // displayButton
             // 
@@ -167,6 +174,7 @@ namespace Assignment2
             this.displayButton.Text = "&Display";
             this.displayButton.UseVisualStyleBackColor = true;
             this.displayButton.Click += new System.EventHandler(this.displayButton_Click);
+            this.displayButton.MouseHover += new System.EventHandler(this.displayButton_MouseHover);
             // 
             // suiteSelectionGroupBox
             // 
@@ -311,6 +319,8 @@ namespace Assignment2
             // 
             // displayDetailsPanel
             // 
+            this.displayDetailsPanel.Controls.Add(this.discountAppliedDisplayLabel);
+            this.displayDetailsPanel.Controls.Add(this.discountAppliedTitleLabel);
             this.displayDetailsPanel.Controls.Add(this.registrationCostDisplayLabel);
             this.displayDetailsPanel.Controls.Add(this.registrationCostTitleLabel);
             this.displayDetailsPanel.Controls.Add(this.lodgingCostDisplayLabel);
@@ -341,17 +351,17 @@ namespace Assignment2
             // registrationCostDisplayLabel
             // 
             this.registrationCostDisplayLabel.AutoSize = true;
-            this.registrationCostDisplayLabel.Location = new System.Drawing.Point(567, 466);
+            this.registrationCostDisplayLabel.Location = new System.Drawing.Point(560, 444);
             this.registrationCostDisplayLabel.Name = "registrationCostDisplayLabel";
-            this.registrationCostDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.registrationCostDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.registrationCostDisplayLabel.TabIndex = 20;
-            this.registrationCostDisplayLabel.Text = "label5";
+            this.registrationCostDisplayLabel.Text = "-";
             // 
             // registrationCostTitleLabel
             // 
             this.registrationCostTitleLabel.AutoSize = true;
             this.registrationCostTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.registrationCostTitleLabel.Location = new System.Drawing.Point(112, 466);
+            this.registrationCostTitleLabel.Location = new System.Drawing.Point(105, 444);
             this.registrationCostTitleLabel.Name = "registrationCostTitleLabel";
             this.registrationCostTitleLabel.Size = new System.Drawing.Size(217, 32);
             this.registrationCostTitleLabel.TabIndex = 19;
@@ -360,17 +370,17 @@ namespace Assignment2
             // lodgingCostDisplayLabel
             // 
             this.lodgingCostDisplayLabel.AutoSize = true;
-            this.lodgingCostDisplayLabel.Location = new System.Drawing.Point(567, 522);
+            this.lodgingCostDisplayLabel.Location = new System.Drawing.Point(560, 504);
             this.lodgingCostDisplayLabel.Name = "lodgingCostDisplayLabel";
-            this.lodgingCostDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.lodgingCostDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.lodgingCostDisplayLabel.TabIndex = 18;
-            this.lodgingCostDisplayLabel.Text = "label5";
+            this.lodgingCostDisplayLabel.Text = "-";
             // 
             // lodgingCostTitleLabel
             // 
             this.lodgingCostTitleLabel.AutoSize = true;
             this.lodgingCostTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lodgingCostTitleLabel.Location = new System.Drawing.Point(112, 522);
+            this.lodgingCostTitleLabel.Location = new System.Drawing.Point(105, 504);
             this.lodgingCostTitleLabel.Name = "lodgingCostTitleLabel";
             this.lodgingCostTitleLabel.Size = new System.Drawing.Size(172, 32);
             this.lodgingCostTitleLabel.TabIndex = 17;
@@ -379,17 +389,17 @@ namespace Assignment2
             // addedOptionalCostDisplayLabel
             // 
             this.addedOptionalCostDisplayLabel.AutoSize = true;
-            this.addedOptionalCostDisplayLabel.Location = new System.Drawing.Point(567, 582);
+            this.addedOptionalCostDisplayLabel.Location = new System.Drawing.Point(560, 564);
             this.addedOptionalCostDisplayLabel.Name = "addedOptionalCostDisplayLabel";
-            this.addedOptionalCostDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.addedOptionalCostDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.addedOptionalCostDisplayLabel.TabIndex = 16;
-            this.addedOptionalCostDisplayLabel.Text = "label5";
+            this.addedOptionalCostDisplayLabel.Text = "-";
             // 
             // addedOptionalCostTitleLabel
             // 
             this.addedOptionalCostTitleLabel.AutoSize = true;
             this.addedOptionalCostTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addedOptionalCostTitleLabel.Location = new System.Drawing.Point(112, 582);
+            this.addedOptionalCostTitleLabel.Location = new System.Drawing.Point(105, 564);
             this.addedOptionalCostTitleLabel.Name = "addedOptionalCostTitleLabel";
             this.addedOptionalCostTitleLabel.Size = new System.Drawing.Size(259, 32);
             this.addedOptionalCostTitleLabel.TabIndex = 15;
@@ -399,7 +409,7 @@ namespace Assignment2
             // 
             this.displayScreenButtonGroupBox.Controls.Add(this.bookButton);
             this.displayScreenButtonGroupBox.Controls.Add(this.displayScreenBackButton);
-            this.displayScreenButtonGroupBox.Location = new System.Drawing.Point(75, 755);
+            this.displayScreenButtonGroupBox.Location = new System.Drawing.Point(70, 776);
             this.displayScreenButtonGroupBox.Name = "displayScreenButtonGroupBox";
             this.displayScreenButtonGroupBox.Size = new System.Drawing.Size(717, 158);
             this.displayScreenButtonGroupBox.TabIndex = 14;
@@ -414,6 +424,7 @@ namespace Assignment2
             this.bookButton.Text = "&Book";
             this.bookButton.UseVisualStyleBackColor = true;
             this.bookButton.Click += new System.EventHandler(this.bookButton_Click);
+            this.bookButton.MouseHover += new System.EventHandler(this.bookButton_MouseHover);
             // 
             // displayScreenBackButton
             // 
@@ -424,21 +435,22 @@ namespace Assignment2
             this.displayScreenBackButton.Text = "B&ack to Previous";
             this.displayScreenBackButton.UseVisualStyleBackColor = true;
             this.displayScreenBackButton.Click += new System.EventHandler(this.displayScreenBackButton_Click);
+            this.displayScreenBackButton.MouseHover += new System.EventHandler(this.displayScreenBackButton_MouseHover);
             // 
             // overallCostDisplayLabel
             // 
             this.overallCostDisplayLabel.AutoSize = true;
-            this.overallCostDisplayLabel.Location = new System.Drawing.Point(567, 643);
+            this.overallCostDisplayLabel.Location = new System.Drawing.Point(560, 624);
             this.overallCostDisplayLabel.Name = "overallCostDisplayLabel";
-            this.overallCostDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.overallCostDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.overallCostDisplayLabel.TabIndex = 13;
-            this.overallCostDisplayLabel.Text = "label5";
+            this.overallCostDisplayLabel.Text = "-";
             // 
             // overallCostTitleLabel
             // 
             this.overallCostTitleLabel.AutoSize = true;
             this.overallCostTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.overallCostTitleLabel.Location = new System.Drawing.Point(112, 643);
+            this.overallCostTitleLabel.Location = new System.Drawing.Point(105, 624);
             this.overallCostTitleLabel.Name = "overallCostTitleLabel";
             this.overallCostTitleLabel.Size = new System.Drawing.Size(159, 32);
             this.overallCostTitleLabel.TabIndex = 12;
@@ -447,17 +459,17 @@ namespace Assignment2
             // numberOfDaysDisplayLabel
             // 
             this.numberOfDaysDisplayLabel.AutoSize = true;
-            this.numberOfDaysDisplayLabel.Location = new System.Drawing.Point(567, 372);
+            this.numberOfDaysDisplayLabel.Location = new System.Drawing.Point(560, 348);
             this.numberOfDaysDisplayLabel.Name = "numberOfDaysDisplayLabel";
-            this.numberOfDaysDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.numberOfDaysDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.numberOfDaysDisplayLabel.TabIndex = 11;
-            this.numberOfDaysDisplayLabel.Text = "label5";
+            this.numberOfDaysDisplayLabel.Text = "-";
             // 
             // numberOfDaysTitleLabel
             // 
             this.numberOfDaysTitleLabel.AutoSize = true;
             this.numberOfDaysTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.numberOfDaysTitleLabel.Location = new System.Drawing.Point(112, 372);
+            this.numberOfDaysTitleLabel.Location = new System.Drawing.Point(105, 348);
             this.numberOfDaysTitleLabel.Name = "numberOfDaysTitleLabel";
             this.numberOfDaysTitleLabel.Size = new System.Drawing.Size(208, 32);
             this.numberOfDaysTitleLabel.TabIndex = 10;
@@ -466,53 +478,53 @@ namespace Assignment2
             // selectedSuiteDisplayLabel
             // 
             this.selectedSuiteDisplayLabel.AutoSize = true;
-            this.selectedSuiteDisplayLabel.Location = new System.Drawing.Point(567, 306);
+            this.selectedSuiteDisplayLabel.Location = new System.Drawing.Point(560, 288);
             this.selectedSuiteDisplayLabel.Name = "selectedSuiteDisplayLabel";
-            this.selectedSuiteDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.selectedSuiteDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.selectedSuiteDisplayLabel.TabIndex = 9;
-            this.selectedSuiteDisplayLabel.Text = "label5";
+            this.selectedSuiteDisplayLabel.Text = "-";
             // 
             // selectedPrintedCertificateDisplayLabel
             // 
             this.selectedPrintedCertificateDisplayLabel.AutoSize = true;
-            this.selectedPrintedCertificateDisplayLabel.Location = new System.Drawing.Point(567, 245);
+            this.selectedPrintedCertificateDisplayLabel.Location = new System.Drawing.Point(560, 228);
             this.selectedPrintedCertificateDisplayLabel.Name = "selectedPrintedCertificateDisplayLabel";
-            this.selectedPrintedCertificateDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.selectedPrintedCertificateDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.selectedPrintedCertificateDisplayLabel.TabIndex = 8;
-            this.selectedPrintedCertificateDisplayLabel.Text = "label4";
+            this.selectedPrintedCertificateDisplayLabel.Text = "-";
             // 
             // selectedParticipantCountDisplayLabel
             // 
             this.selectedParticipantCountDisplayLabel.AutoSize = true;
-            this.selectedParticipantCountDisplayLabel.Location = new System.Drawing.Point(567, 183);
+            this.selectedParticipantCountDisplayLabel.Location = new System.Drawing.Point(560, 168);
             this.selectedParticipantCountDisplayLabel.Name = "selectedParticipantCountDisplayLabel";
-            this.selectedParticipantCountDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.selectedParticipantCountDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.selectedParticipantCountDisplayLabel.TabIndex = 7;
-            this.selectedParticipantCountDisplayLabel.Text = "label3";
+            this.selectedParticipantCountDisplayLabel.Text = "-";
             // 
             // selectedLocationDisplayLabel
             // 
             this.selectedLocationDisplayLabel.AutoSize = true;
-            this.selectedLocationDisplayLabel.Location = new System.Drawing.Point(567, 121);
+            this.selectedLocationDisplayLabel.Location = new System.Drawing.Point(560, 108);
             this.selectedLocationDisplayLabel.Name = "selectedLocationDisplayLabel";
-            this.selectedLocationDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.selectedLocationDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.selectedLocationDisplayLabel.TabIndex = 6;
-            this.selectedLocationDisplayLabel.Text = "label2";
+            this.selectedLocationDisplayLabel.Text = "-";
             // 
             // selectedWorkshopDisplayLabel
             // 
             this.selectedWorkshopDisplayLabel.AutoSize = true;
-            this.selectedWorkshopDisplayLabel.Location = new System.Drawing.Point(567, 61);
+            this.selectedWorkshopDisplayLabel.Location = new System.Drawing.Point(560, 48);
             this.selectedWorkshopDisplayLabel.Name = "selectedWorkshopDisplayLabel";
-            this.selectedWorkshopDisplayLabel.Size = new System.Drawing.Size(78, 32);
+            this.selectedWorkshopDisplayLabel.Size = new System.Drawing.Size(24, 32);
             this.selectedWorkshopDisplayLabel.TabIndex = 5;
-            this.selectedWorkshopDisplayLabel.Text = "label1";
+            this.selectedWorkshopDisplayLabel.Text = "-";
             // 
             // selectedSuiteTitleLabel
             // 
             this.selectedSuiteTitleLabel.AutoSize = true;
             this.selectedSuiteTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.selectedSuiteTitleLabel.Location = new System.Drawing.Point(112, 306);
+            this.selectedSuiteTitleLabel.Location = new System.Drawing.Point(105, 288);
             this.selectedSuiteTitleLabel.Name = "selectedSuiteTitleLabel";
             this.selectedSuiteTitleLabel.Size = new System.Drawing.Size(187, 32);
             this.selectedSuiteTitleLabel.TabIndex = 4;
@@ -522,7 +534,7 @@ namespace Assignment2
             // 
             this.selectedPrintedCertificateTitleLabel.AutoSize = true;
             this.selectedPrintedCertificateTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.selectedPrintedCertificateTitleLabel.Location = new System.Drawing.Point(112, 245);
+            this.selectedPrintedCertificateTitleLabel.Location = new System.Drawing.Point(105, 228);
             this.selectedPrintedCertificateTitleLabel.Name = "selectedPrintedCertificateTitleLabel";
             this.selectedPrintedCertificateTitleLabel.Size = new System.Drawing.Size(410, 32);
             this.selectedPrintedCertificateTitleLabel.TabIndex = 3;
@@ -532,7 +544,7 @@ namespace Assignment2
             // 
             this.selectedParticipantCountTitleLabel.AutoSize = true;
             this.selectedParticipantCountTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.selectedParticipantCountTitleLabel.Location = new System.Drawing.Point(112, 183);
+            this.selectedParticipantCountTitleLabel.Location = new System.Drawing.Point(105, 168);
             this.selectedParticipantCountTitleLabel.Name = "selectedParticipantCountTitleLabel";
             this.selectedParticipantCountTitleLabel.Size = new System.Drawing.Size(290, 32);
             this.selectedParticipantCountTitleLabel.TabIndex = 2;
@@ -542,7 +554,7 @@ namespace Assignment2
             // 
             this.selectedLocationTitleLabel.AutoSize = true;
             this.selectedLocationTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.selectedLocationTitleLabel.Location = new System.Drawing.Point(112, 121);
+            this.selectedLocationTitleLabel.Location = new System.Drawing.Point(105, 108);
             this.selectedLocationTitleLabel.Name = "selectedLocationTitleLabel";
             this.selectedLocationTitleLabel.Size = new System.Drawing.Size(228, 32);
             this.selectedLocationTitleLabel.TabIndex = 1;
@@ -552,7 +564,7 @@ namespace Assignment2
             // 
             this.selectedWorkshopTitleLabel.AutoSize = true;
             this.selectedWorkshopTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.selectedWorkshopTitleLabel.Location = new System.Drawing.Point(112, 61);
+            this.selectedWorkshopTitleLabel.Location = new System.Drawing.Point(105, 48);
             this.selectedWorkshopTitleLabel.Name = "selectedWorkshopTitleLabel";
             this.selectedWorkshopTitleLabel.Size = new System.Drawing.Size(246, 32);
             this.selectedWorkshopTitleLabel.TabIndex = 0;
@@ -599,6 +611,7 @@ namespace Assignment2
             this.summaryScreenExitButton.Text = "&Exit";
             this.summaryScreenExitButton.UseVisualStyleBackColor = true;
             this.summaryScreenExitButton.Click += new System.EventHandler(this.summaryScreenExitButton_Click);
+            this.summaryScreenExitButton.MouseHover += new System.EventHandler(this.summaryScreenExitButton_MouseHover);
             // 
             // summaryScreenClearButton
             // 
@@ -609,6 +622,7 @@ namespace Assignment2
             this.summaryScreenClearButton.Text = "&Clear";
             this.summaryScreenClearButton.UseVisualStyleBackColor = true;
             this.summaryScreenClearButton.Click += new System.EventHandler(this.summaryScreenClearButton_Click);
+            this.summaryScreenClearButton.MouseHover += new System.EventHandler(this.summaryScreenClearButton_MouseHover);
             // 
             // summaryScreenBackButton
             // 
@@ -619,6 +633,7 @@ namespace Assignment2
             this.summaryScreenBackButton.Text = "B&ack to Previous";
             this.summaryScreenBackButton.UseVisualStyleBackColor = true;
             this.summaryScreenBackButton.Click += new System.EventHandler(this.summaryScreenBackButton_Click);
+            this.summaryScreenBackButton.MouseHover += new System.EventHandler(this.summaryScreenBackButton_MouseHover);
             // 
             // averageRevenueDisplayLabel
             // 
@@ -733,13 +748,32 @@ namespace Assignment2
             this.totalNumberOfBookingsTitleLabel.TabIndex = 12;
             this.totalNumberOfBookingsTitleLabel.Text = "Total number of bookings: ";
             // 
+            // discountAppliedDisplayLabel
+            // 
+            this.discountAppliedDisplayLabel.AutoSize = true;
+            this.discountAppliedDisplayLabel.Location = new System.Drawing.Point(560, 684);
+            this.discountAppliedDisplayLabel.Name = "discountAppliedDisplayLabel";
+            this.discountAppliedDisplayLabel.Size = new System.Drawing.Size(24, 32);
+            this.discountAppliedDisplayLabel.TabIndex = 22;
+            this.discountAppliedDisplayLabel.Text = "-";
+            // 
+            // discountAppliedTitleLabel
+            // 
+            this.discountAppliedTitleLabel.AutoSize = true;
+            this.discountAppliedTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.discountAppliedTitleLabel.Location = new System.Drawing.Point(105, 684);
+            this.discountAppliedTitleLabel.Name = "discountAppliedTitleLabel";
+            this.discountAppliedTitleLabel.Size = new System.Drawing.Size(219, 32);
+            this.discountAppliedTitleLabel.TabIndex = 21;
+            this.discountAppliedTitleLabel.Text = "Discount applied?";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 976);
-            this.Controls.Add(this.homePanel);
             this.Controls.Add(this.displayDetailsPanel);
+            this.Controls.Add(this.homePanel);
             this.Controls.Add(this.summaryPanel);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -820,6 +854,9 @@ namespace Assignment2
         private System.Windows.Forms.Button summaryScreenExitButton;
         private System.Windows.Forms.Button summaryScreenClearButton;
         private System.Windows.Forms.Button summaryScreenBackButton;
+        private System.Windows.Forms.ToolTip applicationToolTip;
+        private System.Windows.Forms.Label discountAppliedDisplayLabel;
+        private System.Windows.Forms.Label discountAppliedTitleLabel;
     }
 }
 

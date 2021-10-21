@@ -84,6 +84,14 @@ namespace Assignment2
         const string ZERO_PARTICIPANTS_DESCRIPTION = "Please enter a positive number for number of participants";
         const string INVALID_PARTICIPANTS_DESCRIPTION = "Please enter a whole number for number of participants";
 
+        // Tooltip messages
+        const string DISPLAY_BUTTON_TOOLTIP_TEXT = "Show details of booking before confirmation";
+        const string SUMMARY_BUTTON_TOOLTIP_TEXT = "Show summary of details of bookings made so far";
+        const string CLEAR_BUTTON_TOOLTIP_TEXT = "Clear records of bookings";
+        const string EXIT_BUTTON_TOOLTIP_TEXT = "Exit application";
+        const string BACK_BUTTON_TOOLTIP_TEXT = "Go back to the workshop selection screen";
+        const string BOOK_BUTTON_TOOLTIP_TEXT = "Proceed with booking the workshop";
+
         // Variables holding data for displaying booking details
         string selectedWorkshop = "";
         string selectedLocation = "";
@@ -357,6 +365,9 @@ namespace Assignment2
             // Display the overall cost
             overallCostDisplayLabel.Text = overallCost.ToString("C");
 
+            // Display whether the group discount was applied
+            discountAppliedDisplayLabel.Text = isDiscounted ? YES : NO;
+
             // Show screen with booking details
             homePanel.Hide();
             displayDetailsPanel.Show();
@@ -424,13 +435,13 @@ namespace Assignment2
             totalRevenue = 0.00M;
         }
 
-        // Event handler called on pressing the "Exit" button in the screen with summary information
+        // Event handler called on pressing the "Exit" button in the Summary screen
         private void summaryScreenExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        // Event handler called on pressing the "Back" button in the screen with the summary information
+        // Event handler called on pressing the "Back" button in the Summary screen
         private void summaryScreenBackButton_Click(object sender, EventArgs e)
         {           
             // Go back to the main screen
@@ -438,7 +449,7 @@ namespace Assignment2
             summaryPanel.Hide();
         }
 
-        // Event handler called on pressing the "Clear" button in the screen with the summary information
+        // Event handler called on pressing the "Clear" button in the Summary screen 
         private void summaryScreenClearButton_Click(object sender, EventArgs e)
         {
             resetFormAppearance();
@@ -461,6 +472,61 @@ namespace Assignment2
             numberOfDiscountedBookingsDisplayLabel.Text = totalNumberOfDiscountedBookings.ToString();
             averageRevenueDisplayLabel.Text = (totalRevenue / totalNumberOfBookings).ToString("C");
         }
+
+        // Display a tooltip on hovering over the "Display" button
+        private void displayButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(displayButton, DISPLAY_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Summary" button
+        private void summaryButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(summaryButton, SUMMARY_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Clear" button
+        private void clearButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(clearButton, CLEAR_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Exit" button
+        private void exitButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(exitButton, EXIT_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Back" button in the Display screen
+        private void displayScreenBackButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(displayScreenBackButton, BACK_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Book" button
+        private void bookButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(bookButton, BOOK_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Back" button in the Summary screen
+        private void summaryScreenBackButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(displayScreenBackButton, BACK_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Clear" button in the Summary screen
+        private void summaryScreenClearButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(clearButton, CLEAR_BUTTON_TOOLTIP_TEXT);
+        }
+
+        // Display a tooltip on hovering over the "Exit" button in the Summary screen
+        private void summaryScreenExitButton_MouseHover(object sender, EventArgs e)
+        {
+            applicationToolTip.SetToolTip(exitButton, EXIT_BUTTON_TOOLTIP_TEXT);
+        }
+
     }
 
 }
