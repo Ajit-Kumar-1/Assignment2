@@ -114,11 +114,18 @@ namespace Assignment2
             InitializeComponent();
         }
 
+        // Event handler called when the "Clear" button is clicked
         private void clearButton_Click(object sender, EventArgs e)
         {
+           // Reset the screen's controls to their default values
             resetFormAppearance();
+
+            // Clear saved records of past bookings
             clearSummaryData();
-            MessageBox.Show(DATA_CLEARED_DESCRIPTION, ALERT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Show a message indicating that data has indeed been cleared
+            MessageBox.Show(DATA_CLEARED_DESCRIPTION, ALERT_TITLE, 
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // Event handler called when the "Exit" button is clicked
@@ -133,6 +140,8 @@ namespace Assignment2
         {
             // Shows the previous screen
             homePanel.Show();
+            
+            // Hides the Display screen
             displayDetailsPanel.Hide();
         }
 
@@ -140,8 +149,11 @@ namespace Assignment2
         private void displayButton_Click(object sender, EventArgs e)
         {
 
-            // Variables to keep track of options selected
+            // Variables to keep track of the selected workshop
             int selectedWorkshopIndex = -1;
+
+            // Variable to keep track of number of participants
+            int participantCountValue = 0;
 
             // Variables to keep track of various costs
             decimal registrationCostPerParticipant = 0.00M;
@@ -163,13 +175,16 @@ namespace Assignment2
             selectedWorkshopIndex = workshopSelectionListBox.SelectedIndex;
 
             // Obtain the number of participants selected
-            int participantCountValue = (int)participantCountSelectionControl.Value;
+            participantCountValue = (int)participantCountSelectionControl.Value;
 
             if (participantCountValue > 0) { }
             else if (participantCountValue == 0)
             // Handle exception of number of participants being zero
             {
-                var messageBoxInstance = MessageBox.Show(ZERO_PARTICIPANTS_DESCRIPTION, ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Show a message box indicating the issue
+                var messageBoxInstance = MessageBox.Show(ZERO_PARTICIPANTS_DESCRIPTION, 
+                    ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Return focus
                 if (messageBoxInstance == DialogResult.OK)
                     participantCountSelectionControl.Focus();
                 return;
@@ -424,6 +439,7 @@ namespace Assignment2
             workshopSelectionListBox.Focus();
         }
 
+        // Method to clear saved records of bookings
         private void clearSummaryData()
         {
             // Variables holding data for displaying summary information
@@ -452,19 +468,29 @@ namespace Assignment2
         // Event handler called on pressing the "Clear" button in the Summary screen 
         private void summaryScreenClearButton_Click(object sender, EventArgs e)
         {
+            // Reset the controls on the main screen to default
             resetFormAppearance();
+
+            // Clear records of summary data
             clearSummaryData();
         }
 
         // Event handler called on pressing the "Summary" button
         private void summaryButton_Click(object sender, EventArgs e)
         {
+            // Prevent going to Summary screen if there are no bookings to show a summary of
             if (totalNumberOfBookings < 1) {
                 MessageBox.Show(NO_BOOKINGS_YET_DESCRIPTION, ALERT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+            // Show Summary screen
             summaryPanel.Show();
+
+            // Hide home screen
             homePanel.Hide();
+
+            // Display summary information from saved records
             totalNumberOfBookingsDisplayLabel.Text = totalNumberOfBookings.ToString();
             totalRegistrationFeesDisplayLabel.Text = totalRegistrationFees.ToString("C");
             totalLodgingFeesDisplayLabel.Text = totalLodgingFees.ToString("C");
